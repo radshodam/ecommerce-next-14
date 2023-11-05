@@ -20,3 +20,7 @@ bun dev
 
 ##### add config daisyUi on https://daisyui.com/theme-generator
 ##### customize prettier.config file and eslintrc.json 
+
+##### new project in website mongoDb
+#### init prisma => npx prisma init
+ 
