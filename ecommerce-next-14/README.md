@@ -21,6 +21,9 @@ bun dev
 ##### add config daisyUi on https://daisyui.com/theme-generator
 ##### customize prettier.config file and eslintrc.json 
 
-##### new project in website mongoDb
+##### new project in website MongoDB
 #### init prisma => npx prisma init
+
+##### connect MongoDb  =>DATABASE_URL="mongodb+srv://Radshodam:<passwordAtlasUser>@cluster0.jyclo87.mongodb.net/<name Database>?retryWrites=true&w=majority"
+
  
