@@ -27,3 +27,5 @@ bun dev
 ##### connect MongoDb  =>DATABASE_URL="mongodb+srv://Radshodam:<passwordAtlasUser>@cluster0.jyclo87.mongodb.net<nameDatabase>retryWrites=true&w=majority"
 
 ##### update gitignore add .env
+
+##### update schema.prisma by Mongodb
