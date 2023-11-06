@@ -31,3 +31,5 @@ bun dev
 ##### update schema prisma by MongoDB
 
 #### pull data on database MongoDb => npx prisma db pull
+
+#### update model schema and push => npx prisma db push
