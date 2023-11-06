@@ -18,6 +18,7 @@ export default function AddProductPage() {
     const imageUrl = formData.get('imageUrl')?.toString()
     const price = Number(formData.get('price') || 0)
 
+    // show error page
     if (!name || !description || !imageUrl || !price) {
       throw new Error("Missing required fields");
     }

@@ -40,4 +40,6 @@ bun dev
 
 #### add product page is serverSide => and use Server for create Product
 
-##### update config host name for send image on domains unsplash
+##### update config host name for sending images on domains Unsplash
+
+##### until now => cra error page =>if throw now error use server in form pass to page in errorPage and don't use error side loading in btn submit .until don't work
