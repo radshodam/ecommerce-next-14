@@ -2,6 +2,12 @@ import prisma from "@/lib/db/prisma"
 import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "E-Commerce - Radshodam",
+  description: "Radshodam is your one-stop destination for a premium online shopping experience. Discover a wide range of high-quality products, from fashion and electronics to home decor and more. With a user-friendly interface, secure transactions, and reliable delivery services, we strive to make your online shopping journey convenient and enjoyable. Explore our curated collection....",
+}
 
 export default async function Home() {
 
