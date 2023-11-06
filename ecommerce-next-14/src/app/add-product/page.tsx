@@ -1,11 +1,11 @@
+import FormSubmitButton from '@/components/FormSubmitButton'
 import prisma from '@/lib/db/prisma'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
-import { date } from 'zod'
 
 export const metadata: Metadata = {
   title: 'Radshodam',
-  description: 'We make youre wallet cry',
+  description: "We make you're wallet cry",
 }
 
 export default function AddProductPage() {
@@ -60,9 +60,9 @@ export default function AddProductPage() {
           type="number"
           className="input-bordered input mb-3 w-full focus:input-primary "
         />
-        <button className={`btn-primary btn`} type="submit">
-          submit
-        </button>
+        <FormSubmitButton className='btn-block'>
+          Add Product
+        </FormSubmitButton>
       </form>
     </div>
   )
