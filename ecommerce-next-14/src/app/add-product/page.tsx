@@ -1,4 +1,7 @@
+import prisma from '@/lib/db/prisma'
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
+import { date } from 'zod'
 
 export const metadata: Metadata = {
   title: 'Radshodam',
@@ -9,8 +12,23 @@ export default function AddProductPage() {
 
   async function addProduct(formData: FormData) {
     "use server"
-    console.log("formData", formData);
 
+    const name = formData.get('name')?.toString()
+    const description = formData.get('description')?.toString()
+    const imageUrl = formData.get('imageUrl')?.toString()
+    const price = Number(formData.get('price') || 0)
+
+    if (!name || !description || !imageUrl || !price) {
+      throw new Error("Missing required fields");
+    }
+
+    //don't show product run => npx prisma generate
+    await prisma.product.create({
+      data: { name, description, imageUrl, price }
+    })
+
+    //redirect => next navigation
+    redirect('/')
   }
   return (
     <div>
