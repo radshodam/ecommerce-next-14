@@ -33,3 +33,5 @@ bun dev
 #### pull data on database MongoDb => npx prisma db pull
 
 #### update model schema and push => npx prisma db push
+
+#### run npx prisma generate
