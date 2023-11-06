@@ -39,3 +39,5 @@ bun dev
 #### add prisma.ts config for next js. and connect Prisma and MongoDB in the next js.
 
 #### add product page is serverSide => and use Server for create Product
+
+##### update config host name for send image on domains unsplash
