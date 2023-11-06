@@ -2,13 +2,24 @@ import NotFoundPage from "@/app/not-found";
 import PriceTag from "@/components/PriceTag";
 import prisma from "@/lib/db/prisma";
 import Image from "next/image";
-import React from "react";
+import React, { cache } from "react";
 
 interface ProductPageProps {
     params: {
         id: string
     }
 };
+
+
+const getProduct = cache(async (id: string) => {
+    const product = await prisma.product.findUnique({ where: { id } });
+    if (!product) NotFoundPage();
+    return product;
+
+})
+
+
+
 
 export async function generateMetadata({ params: { id } }: ProductPageProps) {
 
