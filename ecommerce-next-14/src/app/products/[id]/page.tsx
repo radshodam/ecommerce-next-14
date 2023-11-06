@@ -10,6 +10,20 @@ interface ProductPageProps {
     }
 };
 
+export async function generateMetadata({ params: { id } }: ProductPageProps) {
+
+    const product = await prisma.product.findUnique({ where: { id } });
+
+    return {
+        title: product?.name + " - Radshodam",
+        description: product?.description,
+        openGraph: {
+            images: [{ url: product?.imageUrl }],
+        },
+    }
+
+}
+
 export default async function ProductPage({ params: { id } }: ProductPageProps) {
 
     // Retrieve a specific product from the database using Prisma's 'findUnique' method.
