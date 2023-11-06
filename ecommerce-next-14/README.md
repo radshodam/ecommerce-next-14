@@ -24,8 +24,10 @@ bun dev
 ##### new project in website MongoDB
 #### init prisma => npx prisma init
 
-##### connect MongoDb  =>DATABASE_URL="mongodb+srv://Radshodam:<passwordAtlasUser>@cluster0.jyclo87.mongodb.net<nameDatabase>retryWrites=true&w=majority"
+##### connect MongoDb  =>DATABASE_URL="mongodb+srv://Radshodam:<passwordAccessUser>@cluster0.jyclo87.mongodb.net<NameDatabaseCustom>retryWrites=true&w=majority"
 
 ##### update gitignore add .env
 
-##### update schema.prisma by Mongodb
+##### update schema prisma by MongoDB
+
+#### pull data on database MongoDb => npx prisma db pull
