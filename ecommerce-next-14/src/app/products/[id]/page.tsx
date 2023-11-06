@@ -2,7 +2,8 @@ import NotFoundPage from "@/app/not-found";
 import PriceTag from "@/components/PriceTag";
 import prisma from "@/lib/db/prisma";
 import Image from "next/image";
-import React, { cache } from "react";
+import { cache } from "react";
+
 
 interface ProductPageProps {
     params: {
@@ -11,7 +12,20 @@ interface ProductPageProps {
 };
 
 
+// cache
+// Caching is a method of storing data temporarily in memory, 
+// allowing for faster retrieval of frequently used data. 
+// This optimization helps reduce redundant database queries and, in turn,
+// improves the overall performance of the application.
+// cache
+
 const getProduct = cache(async (id: string) => {
+
+    // findUnique
+    // Retrieve a specific product from the database using Prisma's 'findUnique' method.
+    // The 'id' variable is used to specify the unique identifier of the product.
+    // This function fetches a single product based on its 'id' from the 'product' table.
+    // findUnique
     const product = await prisma.product.findUnique({ where: { id } });
     if (!product) NotFoundPage();
     return product;
@@ -23,7 +37,7 @@ const getProduct = cache(async (id: string) => {
 
 export async function generateMetadata({ params: { id } }: ProductPageProps) {
 
-    const product = await prisma.product.findUnique({ where: { id } });
+    const product = await getProduct(id);
 
     return {
         title: product?.name + " - Radshodam",
@@ -37,10 +51,7 @@ export async function generateMetadata({ params: { id } }: ProductPageProps) {
 
 export default async function ProductPage({ params: { id } }: ProductPageProps) {
 
-    // Retrieve a specific product from the database using Prisma's 'findUnique' method.
-    // The 'id' variable is used to specify the unique identifier of the product.
-    // This function fetches a single product based on its 'id' from the 'product' table.
-    const product = await prisma.product.findUnique({ where: { id } });
+    const product = await getProduct(id);
 
     if (!product) NotFoundPage
 
