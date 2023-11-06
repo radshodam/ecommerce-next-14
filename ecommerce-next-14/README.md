@@ -35,3 +35,5 @@ bun dev
 #### update model schema and push => npx prisma db push
 
 #### run npx prisma generate
+
+#### add prisma.ts config for next js. and connect Prisma and MongoDB in the next js.
