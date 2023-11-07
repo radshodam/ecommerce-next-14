@@ -45,3 +45,6 @@ bun dev
 ##### until now => cra error page =>if throw now error use server in form pass to page in errorPage and don't use error side loading in btn submit .until don't work
 
 #### generate data product by cache react in productPage
+
+#### add to cart in db in Prisma & npx prisma db push && npx prisma generate
+
