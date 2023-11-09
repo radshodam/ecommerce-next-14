@@ -20,6 +20,7 @@ model Product {
   @@map("products")
 }
 
+
 model Cart {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   items     CartItem[]
@@ -40,23 +41,3 @@ model CartItem {
 
   @@map("cartitems")
 }
-
-// /**
-//  * The "Product" model is designed to store information about products in your system. It includes the following key fields:
-//  *
-//  * 1. `id`: A unique identifier for each product, defined as a String. It serves as the primary key, is automatically generated with `@default(auto())`, and has additional database-related settings with `@map("_id")` and `@db.ObjectId`.
-//  *
-//  * 2. `description`: This field is used to store product descriptions or details. It is of type String.
-//  *
-//  * 3. `imageUrl`: This field holds the URL of the product's image. It is of type String.
-//  *
-//  * 4. `name`: This field represents the product name. It is of type String.
-//  *
-//  * 5. `price`: This field is related to the product's price. It is of type Integer (Int).
-//  *
-//  * 6. `createdAt`: This field records the creation date and time of the product. It is of type DateTime and is automatically set to the current date and time using `@default(now())`.
-//  *
-//  * 7. `updatedAt`: Similar to `createdAt`, this field tracks the date and time of the last update to the product. It is of type DateTime and is automatically updated using `@updatedAt`.
-//  *
-//  * 8. `@@map("products")`: This Prisma attribute is used to ensure compatibility with the table name in the database related to this model. Here, the table name in the database is set to "products."
-//  */
