@@ -1,4 +1,5 @@
 import prisma from '@/lib/db/prisma'
+import { env } from '@/lib/env';
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { PrismaClient } from "@prisma/client";
 import NextAuth, { NextAuthOptions } from 'next-auth'
@@ -11,12 +12,12 @@ import GoogleProvider from 'next-auth/providers/google'
   providers: [
 
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+      clientId: env.GOOGLE_CLIENT_ID as string,
+      clientSecret: env.GOOGLE_CLIENT_SECRET as string
     }),
     // Passwordless / email sign in
     // EmailProvider({
-    //   server: process.env.MAIL_SERVER,
+    //   server: env.MAIL_SERVER,
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ]
