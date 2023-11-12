@@ -1,3 +1,5 @@
+![E-commerce](ecommerce-next-14/src/app/frame.png)
+
 ## Getting Started
 
 ```bash
