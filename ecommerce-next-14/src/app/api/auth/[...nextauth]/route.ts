@@ -1,3 +1,4 @@
+import { mergeAnonymousCartIntoUserCart } from '@/lib/db/cart';
 import prisma from '@/lib/db/prisma'
 import { env } from '@/lib/env';
 import { PrismaAdapter } from '@auth/prisma-adapter'
@@ -7,7 +8,7 @@ import { Adapter } from 'next-auth/adapters';
 import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 
- export const authOptions:NextAuthOptions={
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
   providers: [
 
@@ -21,10 +22,15 @@ import GoogleProvider from 'next-auth/providers/google'
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ]
-  ,callbacks: {
+  , callbacks: {
     session({ session, user }) {
       session.user.id = user.id;
       return session;
+    },
+  },
+  events: {
+    async signIn({ user }) {
+      await mergeAnonymousCartIntoUserCart(user.id);
     },
   },
 }
