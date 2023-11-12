@@ -20,6 +20,12 @@ import GoogleProvider from 'next-auth/providers/google'
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ]
+  ,callbacks: {
+    session({ session, user }) {
+      session.user.id = user.id;
+      return session;
+    },
+  },
 }
 
 const handler = NextAuth(authOptions);
