@@ -7,8 +7,18 @@ import { getCart } from "@/lib/db/cart";
 import UserMenuButton from "./UserMenuButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from 'next/navigation'
 
-// type Props = {};
+async function searchProducts(formData: FormData) {
+    "use server";
+
+    const searchQuery = formData.get("searchQuery")?.toString();
+
+    if (searchQuery) {
+        redirect("/search?query=" + searchQuery);
+    }
+}
+
 
 export default async function Navbar() {
 
@@ -28,7 +38,7 @@ export default async function Navbar() {
                 </div>
 
                 <div className="flex-none gap-2">
-                    <form >
+                    <form action={searchProducts}>
                         <div className="form-control">
                             <input
                                 name="searchQuery"
@@ -38,7 +48,7 @@ export default async function Navbar() {
                         </div>
                     </form>
                     <ShoppingCartButton cart={cart} />
-                    <UserMenuButton session={session}/>
+                    <UserMenuButton session={session} />
                 </div>
             </div>
         </div>
